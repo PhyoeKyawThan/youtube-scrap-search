@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            width: 100%;
+            margin: auto;
+        }
+
+        h1{
+            width: fit-content;
+            /* margin: 10px auto; */
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        div iframe, img{
+            width: 400px;
+            border-radius: 20px;
+            border: 3px solid sandybrown;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Search and Watch</h1>
+    <form action="/" method="post" style="margin: 50px auto; width: 300px;"><input type="text" name="search-text"
+            id="" placeholder="search"><input type="submit" value="search"></form>
+    <div>
+        {% if videos %}
+        {% for video in videos %}
+        <img src="{{ video["videoRenderer"]["thumbnail"]["thumbnails"][0]["url"] }}" alt="" srcset="">
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video["videoRenderer"]["videoId"]
+            }}?si=JzlhqG9j-jX9kvhV" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+
+</html>
